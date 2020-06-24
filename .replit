@@ -1,2 +1,3 @@
-language = "python"
-run = "python recipe_name.py"
+language = "python "
+run = "python 
+list_ingredients.py"

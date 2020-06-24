@@ -1,5 +1,3 @@
-# get the recipe name and make sure not blank 
-
 # Not blank funtion
 
 def not_blank(question):
@@ -24,12 +22,28 @@ def not_blank(question):
         else:
             return response
 
-# Main ruotine 
+# Number checking (number must be more than 0)
+def num_check(question):
 
-recipe_name = input("what is the recipe name: ")
+            error = "please enter a number that is more than zero"
 
-print ("you are making {}". format(recipe_name))
+            valid = False
+            while not valid:
+                try:
+                    response = int(input(question))
 
-recipe_serving = input("what the amount you will be wanting?")
+                    if response > 0:
+                        return response
+                    else:
+                        print(error)
 
-print (" The amount you will be getting is {}". format(recip_ serving))
+                except ValueError:
+                    print(error)
+
+# Main ruotine
+
+recipe_name = not_blank("what is the recipe name: ")
+print ("you are making {}". format(recipe_name,not_blank))
+
+recipe_serving = num_check("what the amount you will be wanting?")
+print ("The serving size you will be getting is {}". format(recipe_serving,num_check))
