@@ -1,5 +1,4 @@
 # Not blank funtion
-
 def not_blank(question):
     error = "your recipe name has numbers in it."
 
@@ -40,41 +39,28 @@ def num_check(question):
                 except ValueError:
                     print(error)
 
-# Replace line below with component 3 in due course
-scale_factor = eval(input("scale Factor "))
+                if ingredient_amount == "xxx" and len(get_ingredients) > 1:
+                    break
 
-# Set up empty ingredients list
-ingredients = []
+                elif ingredient_amount == "xxx" and len(get_ingredients) < 2:
+                    print("you need at least two ingredients in the list.  "
+                          "please add more ingredients. ")
 
-# Loop to ask user to enter an ingredient
-stop = ""
-while stop != "xxx":
+# Get ingredients list
+# Assume all ingredients are in grams!!
 
-    amount = num_check("what is the amount for the ingredients? ")
+# for each ingredient
+get_ingredients = input, not_blank ("Ingredient Name: ")
+ingredient_price = float(input("ingredient price: $"))
+ingredient_amount = float(input ("ingredient amount bought: "))
+recipe_amount = float(input("recipe amount needed:"))
 
-    # stop loopin if exit code is typed and there are more
-    # than 2 ingredients
-    if amount == "xxx" and len(ingredients) >  1:
-        break
+cost_to_make = ingredient_price / ingredient_amount * recipe_amount
+print("{:.2f}".format(cost_to_make))
 
-    elif amount == "xxx" and len (ingredients) <2:
-        print("you need at least two ingredients in the list.  "
-              "please add more ingredients. ")
-    # If exit code is not entered, add ingredient to list
-    else:
-        # Ask user for ingredient (via not blank function)
-        get_ingredients = not_blank("please type in an ingredient name ")
-        amount = float(amount) * scale_factor
 
-        # Remove decimal point for whole numbers
-        if amount % 1 == 0:
-            amount = int(amount)
-        elif amount * 10 % 1 == 0:
-            amount = "{:.1f}".format(amount)
-        else:
-            amount = "{:.2f}".format(amount)
 
-        ingredients.append("{} units {}".format(amount, get_ingredients))
 
-# Output list
-for items in ingredients:
+
+
+
