@@ -57,7 +57,7 @@ while ingredients != "xxx":
     if ingredients == "xxx":
             break
 
-    price = input("ingredient price:$ ")
+  price = input("ingredient price:$ ")
     amount = float(input("ingredient amount bought: "))
     recipe_amount = float(input("recipe amount needed:"))
     cost_to_make = ingredient_price / ingredient_amount * recipe_amount
@@ -69,7 +69,14 @@ print(questions)
 
 # Assume all ingredients are in grams!!
 
-# for each ingredient
+# Main ruotine
+
+recipe_name = not_blank("what is the recipe name: ")
+print ("you are making {}". format(recipe_name,not_blank))
+
+recipe_serving = num_check("what the amount you will be wanting?")
+print ("The serving size you will be getting is {}". format(recipe_serving,num_check))
+
 get_ingredients = input,not_blank ("Ingredient Name: ")
 ingredient_price = float (input("ingredient price: $"))
 ingredient_amount = float(input ("ingredient amount bought: "))
@@ -78,14 +85,7 @@ cost_to_make = ingredient_price / ingredient_amount * recipe_amount
 print("cost to make:")
 print("{:.2f}".format(cost_to_make))
 
-# while loop
-questions = []
 
-ingredients = ""
-while ingredients != "xxx":
-    ingredients = input("ingredient name:")
-    if ingredients == "xxx":
-            break
 
     price = input("ingredient price:$ ")
     amount = float(input("ingredient amount bought: "))
@@ -94,7 +94,3 @@ while ingredients != "xxx":
     print("cost to make:")
     print("{:.2f}".format(cost_to_make))
 Total_costs = input("total cost to make:")
-
-
-
-
