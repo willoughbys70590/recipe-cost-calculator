@@ -1,6 +1,3 @@
-# Get ingredients list
-expense_list = ['pasta',3.80], ['butter',0.92], ['garlic',0.14 ], ['plain flour',0.04 ], ['whole milk', 1.43], ['cream', 2.35], ['parmesan cheese', 3.07], ['salt', 0.02], ['pepper', 0.18], ['chicken', 23] 
-
 # Not blank funtion
 def not_blank(question):
     error = "your recipe name has numbers in it."
@@ -49,24 +46,7 @@ def num_check(question):
                     print("you need at least two ingredients in the list.  "
                           "please add more ingredients. ")
 
-# while loop
-questions = []
-ingredients = ""
-while ingredients != "xxx":
-    ingredients = input("ingredient name:")
-    if ingredients == "xxx":
-            break
-
-    price = input("ingredient price:$ ")
-    amount = float(input("ingredient amount bought: "))
-    recipe_amount = float(input("recipe amount needed:"))
-    cost_to_make = ingredient_price / ingredient_amount * recipe_amount
-    print("cost to make:")
-    print("{:.2f}".format(cost_to_make))
-
-    questions.append("{} {} {} {}".format(ingredients,cost_to_make))
-print(questions)
-
+# Get ingredients list
 # Assume all ingredients are in grams!!
 
 # for each ingredient
@@ -74,9 +54,9 @@ get_ingredients = input,not_blank ("Ingredient Name: ")
 ingredient_price = float (input("ingredient price: $"))
 ingredient_amount = float(input ("ingredient amount bought: "))
 recipe_amount = float(input("recipe amount needed:"))
-cost_to_make = ingredient_price / ingredient_amount * recipe_amount
+cost = ingredient_price / ingredient_amount * recipe_amount
 print("cost to make:")
-print("{:.2f}".format(cost_to_make))
+print("{:.2f}".format(cost))
 
 # while loop
 questions = []
@@ -93,8 +73,8 @@ while ingredients != "xxx":
     cost_to_make = ingredient_price / ingredient_amount * recipe_amount
     print("cost to make:")
     print("{:.2f}".format(cost_to_make))
-Total_costs = input("total cost to make:")
 
-
+    questions.append("{} ".format(ingredients, cost_to_make))
+    print(questions)
 
 
