@@ -1,5 +1,4 @@
 # Get ingredients list
-expense_list = ['pasta',3.80], ['butter',0.92], ['garlic',0.14 ], ['plain flour',0.04 ], ['whole milk', 1.43], ['cream', 2.35], ['parmesan cheese', 3.07], ['salt', 0.02], ['pepper', 0.18], ['chicken', 23]
 
 # Not blank funtion
 def not_blank(question):
@@ -57,34 +56,60 @@ print("The serving size you will be getting is {}".format(recipe_serving, num_ch
 # Assume all ingredients are in grams!!
 
 # for each ingredient
+'''
 get_ingredients = input,not_blank ("Ingredient Name: ")
 ingredient_price = float (input("ingredient price: $"))
 ingredient_amount = float(input ("ingredient amount bought: "))
 recipe_amount = float(input("recipe amount needed:"))
-cost = ingredient_price / ingredient_amount * recipe_amount
+cost_to_make = ingredient_price / ingredient_amount * recipe_amount
 print("cost to make:")
-print("{:.2f}".format(cost))
+print(get_ingredients,cost_to_make)
+print("{:.2f}".format(cost_to_make,get_ingredients))
+'''
+
 
 # while loop
-questions = []
+all_ingredients = []
 
 ingredients = ""
 while ingredients != "xxx":
+
+    ingredient_details = []
+
     ingredients = input("ingredient name:")
     if ingredients == "xxx":
             break
 
-    price = input("ingredient price:$ ")
-    amount = float(input("ingredient amount bought: "))
+    ingredient_price = float(input("ingredient price: $"))
+    print ("amount must be in grams")
+    ingredient_amount = float(input("ingredient amount bought: "))
     recipe_amount = float(input("recipe amount needed:"))
     cost_to_make = ingredient_price / ingredient_amount * recipe_amount
     print("cost to make:")
-    print("{:.2f}".format(cost_to_make))
+    print("{:.2f}".format(cost_to_make,ingredients))
 
-    questions.append("{} {} ".format(ingredients,cost_to_make))
-print(questions)
+    # add things to each row
+    ingredient_details.append(ingredients)
+    ingredient_details.append(cost_to_make)
 
+    # add row to larger list
+    all_ingredients.append(ingredient_details)
+
+# questions.append(" ".format(ingredients,cost_to_make))
+
+# print(all_ingredients)
+
+# total_cost = cost + cost_to_make
+print("****Total cost****")
 total = 0
-total_cost = total = + cost_to_make
-print("total cost to make")
-print("{:.2f}".format(total_cost))
+count = 0
+for item in all_ingredients:
+    total += all_ingredients[count][1]
+    print("{} : ${:.2f}".format(all_ingredients[count][0], all_ingredients[count][1]))
+    # print(all_ingredients[count][1])
+    count +=1
+print("{:.2f}".format(total))
+
+per_serve = total / recipe_serving
+print("****per serve:**** ")
+print("{:.2f}".format(per_serve))
