@@ -1,4 +1,5 @@
 # Not blank funtion
+
 def not_blank(question):
     error = "your recipe name has numbers in it."
 
@@ -39,42 +40,41 @@ def num_check(question):
                 except ValueError:
                     print(error)
 
-                if ingredient_amount == "xxx" and len(get_ingredients) > 1:
-                    break
+# Replace line below with component 3 in due course
+scale_factor = eval(input("scale Factor "))
 
-                elif ingredient_amount == "xxx" and len(get_ingredients) < 2:
-                    print("you need at least two ingredients in the list.  "
-                          "please add more ingredients. ")
+# Set up empty ingredients list
+ingredients = []
 
-# Get ingredients list
-# Assume all ingredients are in grams!!
+# Loop to ask user to enter an ingredient
+stop = ""
+while stop != "xxx":
 
-# for each ingredient
-get_ingredients = input,not_blank ("Ingredient Name: ")
-ingredient_price = float (input("ingredient price: $"))
-ingredient_amount = float(input ("ingredient amount bought: "))
-recipe_amount = float(input("recipe amount needed:"))
-cost = ingredient_price / ingredient_amount * recipe_amount
-print("cost to make:")
-print("{:.2f}".format(cost))
+    amount = num_check("what is the amount for the ingredients? ")
 
-# while loop
-questions = []
+    # stop loopin if exit code is typed and there are more
+    # than 2 ingredients
+    if amount == "xxx" and len(ingredients) >  1:
+        break
 
-ingredients = ""
-while ingredients != "xxx":
-    ingredients = input("ingredient name:")
-    if ingredients == "xxx":
-            break
+    elif amount == "xxx" and len (ingredients) <2:
+        print("you need at least two ingredients in the list.  "
+              "please add more ingredients. ")
+    # If exit code is not entered, add ingredient to list
+    else:
+        # Ask user for ingredient (via not blank function)
+        get_ingredients = not_blank("please type in an ingredient name ")
+        amount = float(amount) * scale_factor
 
-    price = input("ingredient price:$ ")
-    amount = float(input("ingredient amount bought: "))
-    recipe_amount = float(input("recipe amount needed:"))
-    cost_to_make = ingredient_price / ingredient_amount * recipe_amount
-    print("cost to make:")
-    print("{:.2f}".format(cost_to_make))
+        # Remove decimal point for whole numbers
+        if amount % 1 == 0:
+            amount = int(amount)
+        elif amount * 10 % 1 == 0:
+            amount = "{:.1f}".format(amount)
+        else:
+            amount = "{:.2f}".format(amount)
 
-    questions.append("{} ".format(ingredients, cost_to_make))
-    print(questions)
+        ingredients.append("{} units {}".format(amount, get_ingredients))
 
-
+# Output list
+for items in ingredients:
