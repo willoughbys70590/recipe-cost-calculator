@@ -46,21 +46,34 @@ def num_check(question):
                     print("you need at least two ingredients in the list.  "
                           "please add more ingredients. ")
 
-# Get ingredients list
 # Assume all ingredients are in grams!!
 
 # for each ingredient
-get_ingredients = input, not_blank ("Ingredient Name: ")
-ingredient_price = float(input("ingredient price: $"))
+get_ingredients = input,not_blank ("Ingredient Name: ")
+ingredient_price = float (input("ingredient price: $"))
 ingredient_amount = float(input ("ingredient amount bought: "))
 recipe_amount = float(input("recipe amount needed:"))
-
 cost_to_make = ingredient_price / ingredient_amount * recipe_amount
+print("cost to make:")
 print("{:.2f}".format(cost_to_make))
 
+# while loop
+questions = []
 
+ingredients = ""
+while ingredients != "xxx":
+    ingredients = input("ingredient name:")
+    if ingredients == "xxx":
+            break
 
+    price = input("ingredient price:$ ")
+    amount = float(input("ingredient amount bought: "))
+    recipe_amount = float(input("recipe amount needed:"))
+    cost_to_make = ingredient_price / ingredient_amount * recipe_amount
+    print("cost to make:")
+    print("{:.2f}".format(cost_to_make))
 
-
+questions.append("{} ".format(ingredients, cost_to_make))
+print(questions)
 
 
